@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/scanner.css">
+    <title>XSS Scanner</title>
+</head>
+<body>
+    <div class="container">
+        <div class="scanner">
+            <img src="/static/img/logo2.png" class="avatar" alt="logo"><br>
+
+            <h1>XSS Scanner</h1>
+            <form method="POST" action="/scan">
+                <label>Please Enter URL to scan:</label>
+                <input type="text" name="url" placeholder="URL..." required>
+                <br>
+                <button id="btn" type="submit">Scan</button>
+            </form>
+            <div id="result">
+                <!-- Result will be displayed here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

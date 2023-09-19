@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>IP Address Lookup</title>
+    <style>
+  /* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background color */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+.ip-container {
+    margin-top: 30px;
+}
+
+.ip-column {
+    margin-bottom: 30px;
+}
+
+.ip-address {
+    font-weight: bold;
+    font-size: 36px;
+    color: #555555;
+}
+
+.ip-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.ip-list-item {
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #666666;
+}
+
+.copy-btn {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+   
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #2980b9;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your IP Addresses</h1>
+        <div class="ip-container">
+            <div class="ip-column">
+                <p class="ip-address">IPv4 Address:</p>
+                <p class="ip-list-item">{{ ipv4_address }}</p>
+                
+            </div>
+            <div class="ip-column">
+                <p class="ip-address">IPv6 Addresses:</p>
+                <ul class="ip-list">
+                    {% for ipv6 in ipv6_addresses %}
+                        <li class="ip-list-item">{{ ipv6 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <button class="copy-btn" id="copyBtn">Copy IPv4 Address</button>
+    </div>
+    <script>
+        const copyBtn = document.getElementById('copyBtn');
+        const ipv4Address = "{{ ipv4_address }}";
+
+        copyBtn.addEventListener('click', () => {
+            const textarea = document.createElement('textarea');
+            textarea.value = ipv4Address;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('IPv4 Address copied to clipboard: ' + ipv4Address);
+        });
+    </script>
+
+</body>
+</html>
