@@ -17,7 +17,12 @@
                 <button id="btn" type="submit">Scan</button>
             </form>
             <div id="result">
-                <!-- Result will be displayed here -->
+                <h2>Scan Results:</h2>
+                <ul>
+                    {% for result in results %}
+                        <li>{{ result }}</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>

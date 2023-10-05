@@ -33,6 +33,16 @@ def scanner():
 def passwordGen():
     return render_template('passwordGen.html')
 
+
+
+@app.route('/passwordchecker')
+def passwordchecker():
+    return render_template('passwordchecker.html')
+
+
+
+# import time  # Import the time module
+
 # # Function to check for XSS vulnerability
 # def check_xss(url):
 #     try:
@@ -43,25 +53,63 @@ def passwordGen():
 #         # Open the web page
 #         driver.get(url)
 
-#         # Find a form element and inject an XSS payload
-#         form = driver.find_element(By.TAG_NAME, 'form')
-#         input_field = form.find_element(By.TAG_NAME, 'input')
-#         input_field.send_keys('<script>alert("XSS");</script>')
+#         # List of XSS payloads to test
+#         xss_payloads = [
+#             '<script>alert("XSS");</script>',
+#             '<img src="x" onerror="alert(\'XSS\');">',
+#             '"><script>alert("XSS");</script>',
+#             '<svg/onload=alert(\'XSS\')>',
+#             '<iframe src="javascript:alert(\'XSS\');" />'
+#             # Add more payloads as needed
+#         ]
 
-#         # Submit the form
-#         form.submit()
+#         results = []
 
-#         # Check if the alert dialog appears (indicating XSS vulnerability)
-#         alert = WebDriverWait(driver, 5).until(EC.alert_is_present())
-#         alert_text = alert.text
-#         alert.accept()
+#         for payload in xss_payloads:
+#             try:
+#                 # Use JavaScript to inject the payload into the input field
+#                 driver.execute_script('''
+#                     var input = document.querySelector('input[type="text"]');
+#                     input.value = arguments[0];
+#                 ''', payload)
+
+#                 # Pause for a moment to allow the payload to take effect in the browser (adjust the delay as needed)
+#                 time.sleep(1)  # Adjust the delay (in seconds) as needed
+
+#                 # Submit the form if available (some websites may not have a form)
+#                 form = driver.find_element(By.TAG_NAME, 'form')
+#                 form.submit()
+
+#                 # Check if the alert dialog appears (indicating XSS vulnerability)
+#                 alert = WebDriverWait(driver, 5).until(EC.alert_is_present())
+#                 alert_text = alert.text
+#                 alert.accept()
+
+#                 if alert_text:
+#                     results.append("The website has an XSS vulnerability with payload: " + payload)
+#                 else:
+#                     results.append("No alert for payload: " + payload)
+#             except Exception as e:
+#                 # If no alert is triggered, continue to the next payload
+#                 continue
+
+#             # Reload the page for the next payload
+#             driver.get(url)
 
 #         # Close the browser
 #         driver.quit()
 
-#         return "The website has an XSS vulnerability" if alert_text else "The website is safe"
+#         if results:
+#             return "\n".join(results)
+#         else:
+#             return "The website is safe from known XSS payloads"
 #     except Exception as e:
 #         return str(e)
+
+
+
+
+
 
 # # Route to handle XSS scanning
 # @app.route('/scan', methods=['POST'])
