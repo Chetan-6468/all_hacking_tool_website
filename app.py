@@ -40,6 +40,40 @@ def passwordchecker():
     return render_template('passwordchecker.html')
 
 
+@app.route('/subdomain')
+def subdomain():
+    return render_template('subdomain.html')
+
+
+
+# from flask import Flask, render_template, request
+# import dns.resolver
+
+# app = Flask(__name__)
+
+# def find_subdomains(domain):
+#     subdomains = []
+#     try:
+#         answers = dns.resolver.query(domain, 'CNAME')
+#         for rdata in answers:
+#             subdomains.append(rdata.target)
+#     except dns.resolver.NoAnswer:
+#         pass
+#     return subdomains
+
+# @app.route('/subdomain', methods=['GET', 'POST'])
+# def subdomain():
+#     subdomains = []
+#     if request.method == 'POST':
+#         domain = request.form['domain']
+#         if domain:
+#             subdomains = find_subdomains(domain)
+#     return render_template('subdomain.html', subdomains=subdomains)
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+
 
 # import time  # Import the time module
 
@@ -105,10 +139,6 @@ def passwordchecker():
 #             return "The website is safe from known XSS payloads"
 #     except Exception as e:
 #         return str(e)
-
-
-
-
 
 
 # # Route to handle XSS scanning

@@ -155,3 +155,59 @@
   cursor: pointer; 
 }
 
+
+/* Footer styles */
+footer {
+  background-color: #333; /* Background color for the footer */
+  color: #fff; /* Text color for the footer */
+  padding: 20px 0; /* Padding for top and bottom */
+}
+
+.social-icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 30px;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 20px; /* Spacing between social icons */
+}
+
+.social-icons a {
+  color: #fff; /* Color of social icons */
+  font-size: 24px; /* Adjust the font size as needed */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.social-icons a:hover {
+  color: #55acee; /* Color change on hover (adjust as needed) */
+}
+
+.footer-logo {
+  font-size: 30px; /* Adjust the font size as needed */
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff; /* Color of the footer logo */
+
+}
+
+/* Center align text and logo in the footer */
+.footer-text {
+  text-align: center;
+ 
+}
+
+/* Add a subtle border at the top of the footer */
+.border-top {
+  border-top: 1px solid #fff;
+  padding-top: 20px;
+  text-align: center;
+  font-size: large;
+  margin-top: 20px;
+}
+
+
+

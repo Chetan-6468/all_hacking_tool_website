@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subdomain Finder</title>
+    <link rel="stylesheet" href="/static/css/subdomain.css">
+</head>
+<body>
+    <h1>Subdomain Finder</h1>
+    <form method="post">
+        <label for="domain">Enter a domain:</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">Find Subdomains</button>
+    </form>
+    <h2>Subdomains:</h2>
+    <ul>
+        {% for subdomain in subdomains %}
+            <li>{{ subdomain }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
