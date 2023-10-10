@@ -45,6 +45,17 @@ def subdomain():
     return render_template('subdomain.html')
 
 
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
+
+@app.route('/forgotpassword')
+def forgotpassword():
+    return render_template('forgotpassword.html')
 
 # from flask import Flask, render_template, request
 # import dns.resolver

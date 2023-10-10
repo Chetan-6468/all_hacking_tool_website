@@ -1,0 +1,198 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #939292; /* Light grey background */
+    height:450px; /* Full viewport height */
+}
+
+.forget {
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 14px;
+    color: #5d5d5d; /* Green text color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forget:hover {
+    color: #1A8B1A; /* Darker green on hover */
+}
+/* Page container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* White container background */
+    border: 5px solid #007bff; /* Blue border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Full height within the viewport */
+}
+
+/* Header styling */
+h2 {
+    color: #228B22; /* Green header text */
+    text-align: center;
+    font-size: 20px;
+    margin-bottom:5px;
+}
+
+
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #333; /* Grey label text */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 510px;
+    padding: 9px;
+    margin-bottom: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 100%;
+    padding: 9px;
+    background-color: #228B22; /* Green submit button */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #1A8B1A; /* Darker green on hover */
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+    color: #228B22; /* Green link text */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+a:hover {
+    color: #1A8B1A; /* Darker green on hover */
+}
+
+/* Social signup buttons */
+.social-signup {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-signup p{
+    font-weight: bold;
+    background-color: #4c4c4c;
+    color: #fff;
+   
+}
+.social-button-facebook,
+.social-button-github,
+.social-button-linkedin,
+.social-button-google
+{
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.social-button-facebook {
+    background-color: #1877f2; /* Facebook blue */
+    color: #fff;
+    
+}
+
+.social-button-facebook:hover {
+    background-color: #5189dc; /* Darker blue on hover */
+    color: #fff;
+
+}
+
+.social-button-github {
+    background-color: #000000; /* GitHub grey */
+    color: #fff;
+}
+
+.social-button-github:hover {
+    background-color: #4c4c4c; /* Darker grey on hover */
+    color: #fff;
+
+}
+
+.social-button-google {
+    background-color: #c02d00; /* Google blue */
+    color: #fff;
+
+}
+
+.social-button-google:hover {
+    background-color: #ff4d00; /* Darker blue on hover */
+    color: #fff;
+
+}
+
+.social-button-linkedin {
+    background-color: #0e76a8; /* LinkedIn blue */
+    color: #fff;
+
+}
+
+.social-button-linkedin:hover {
+    background-color: #5ea0c4; /* Darker blue on hover */
+    color: #fff;
+
+}
+
+.social-button img {
+    margin-right: 10px; /* Add spacing between icon and text */
+}
+
+/* Privacy policy and agreement text */
+.privacy-policy {
+    text-align: center;
+    margin-top: 20px;
+    color: #555; /* Grey text for privacy policy */
+    font-size: 14px;
+}
+
+.agreement-text {
+    text-align: center;
+    margin-top: 10px;
+    color: #555; /* Grey text for agreement */
+    font-size: 14px;
+    font-style: italic;
+}
+
+.account{
+    text-align: center;
+}
+
+.bio,
+.bio a{
+    font-size: small;
+    
+    text-align: center;
+}
