@@ -11,14 +11,50 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# from xss import xss
+from auth import auth_page
+from auth import db
 
+from middleware import authentication, guest
+
+from flask_admin import Admin
 app = Flask(__name__)
-# app.register_blueprint(xss)
+
+# set optional bootswatch theme
+app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
+
+admin = Admin(app, name='microblog', template_mode='bootstrap3')
+
+app.config['SECRET_KEY'] = 'thisismysecretkey' 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+app.register_blueprint(auth_page, url_prefix="/auth")
+
+db.init_app(app) 
+
+
+with app.app_context():
+    db.create_all()
+
+
 
 @app.route('/')
+def mainHome():
+    return render_template('mainHome.html')
+
+@app.route('/mainhome')
+@guest
+def mainhome():
+    return render_template('mainHome.html')
+
+@app.route('/home')
+@authentication
+
 def home():
     return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/menu')
 def menu():
@@ -45,13 +81,13 @@ def subdomain():
     return render_template('subdomain.html')
 
 
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
+# @app.route('/signup')
+# def signup():
+#     return render_template('signup.html')
 
-@app.route('/signin')
-def signin():
-    return render_template('signin.html')
+# @app.route('/signin')
+# def signin():
+#     return render_template('signin.html')
 
 @app.route('/forgotpassword')
 def forgotpassword():
@@ -220,7 +256,7 @@ def scan_port(target, port, results):
 # ---------------port_scanning---------------------
 # ---------------port_scanning---------------------
 
-@app.route('/port_scanning', methods=['GET', 'POST'])
+@app.route('/port_scanning', methods=['GET', 'POST'], endpoint='app.port_scanning')
 def port_scanning():
     if request.method == 'POST':
         target = request.form['target']

@@ -9,9 +9,20 @@
 <body>
     <div class="container">
         <h2>Sign Up</h2>
-        <form method="POST">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% endwith %}
+        <form action="/auth/signup " method="POST">
+
+            <label for="name">name:</label>
+            <input type="text" name="name" id="name" required>
             
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
@@ -36,7 +47,7 @@
             <a href="#" class="social-button-linkedin">LinkedIn</a>
             <a href="#" class="social-button-github">GitHub</a>
         </div>
-        <p class="account">Already have an account? <a href="/signin">Sign In</a></p>
+        <p class="account">Already have an account? <a href="/auth/signin">Sign In</a></p>
         
         <p class="bio">By creating this account, you agree to our <a href="#">Privacy Policy</a> & <a href="#">Cookie Policy</a>.</p>
         

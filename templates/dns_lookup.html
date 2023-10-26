@@ -2,10 +2,8 @@
 <html>
 <head>
     <title>DNS Lookup</title>
-<link rel="shortcut icon" href="/static/img/logo2.png">
-
     <style>
-   
+    /* Reset some default styles */
 body {
     margin: 0;
     padding: 0;
@@ -124,6 +122,41 @@ th {
 }
 
 
+.hello {
+            max-width: 85%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .box {
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .documentation h2 {
+            cursor: pointer;
+            color: #333;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .documentation p {
+            font-size: 1rem;
+            margin-top: 5px;
+            color: #333;
+            display: none;
+        }
+
+        .documentation p.active {
+            display: block;
+        
+        }
     </style>
 </head>
 <body>
@@ -135,6 +168,8 @@ th {
             <button type="submit">Lookup</button>
         </form>
     </div>
+
+
 
     {% if result %}
     <div class="result-table">
@@ -155,5 +190,165 @@ th {
         </table>
     </div>
     {% endif %}
+
+
+    <div class="hello">
+        <div class="documentation">
+          <div class="box">
+            <h2 onclick="toggleContent('content1')"><b>What is DNS?</b>
+            
+            </h2>
+            <p id="content1">
+                DNS stands for Domain Name System. It is a fundamental component of the internet that translates human-readable domain names into IP addresses, which are the numerical identifiers used by computers to locate and communicate with each other on a network. <br><br>
+
+                <strong>Here's how DNS works:</strong> <br><br>
+                
+                <b>1.User Input:-</b> When you type a website's domain name (e.g., www.example.com) into your web browser, your computer needs to find the corresponding IP address to establish a connection with the website's server. <br> <br>
+                
+                <b>2.DNS Query:-</b> Your computer first checks its local DNS cache to see if it already knows the IP address for the domain. If it doesn't find the information there, it sends a DNS query to a DNS resolver. <br><br>
+                
+                <b>3.DNS Resolver:-</b> A DNS resolver is a server that specializes in handling DNS queries. Your internet service provider (ISP) usually provides a DNS resolver, or you might use public DNS resolvers like Google's 8.8.8.8 or Cloudflare's 1.1.1.1. The resolver receives your query and checks its cache for the IP address. If it has the information, it returns the IP address to your computer. <br><br>
+                
+                <b>4.Recursive Query:-</b> If the resolver doesn't have the IP address in its cache, it becomes a recursive resolver. It starts the process of finding the IP address by querying the root DNS servers, which are at the top of the DNS hierarchy. The root servers direct the resolver to the authoritative DNS servers for the top-level domain (TLD) of the website (e.g., .com for www.example.com).<br> <br>
+                
+                <b>5.Authoritative DNS Server:-</b> The TLD's authoritative DNS server is responsible for directing the resolver to the DNS server of the specific domain (e.g., example.com). The authoritative server for the domain holds the final record that maps the domain name to the IP address. <br><br>
+                
+                <b>6.IP Address Retrieval:-</b> The resolver queries the authoritative DNS server for the IP address of the requested domain. The authoritative server responds with the IP address. <br><br>
+                
+                <b>7.Response to User:-</b> The resolver now has the IP address and returns it to your computer. <br><br>
+                
+                <b>8.Connection:-</b> Your computer can now establish a connection with the webserver associated with the IP address obtained. This allows you to access the website you initially requested. <br><br>
+                
+                DNS is crucial for the functioning of the internet because it abstracts the need to remember numerical IP addresses for every website. Instead, it enables users to access websites using human-readable domain names, making the internet more user-friendly.
+              
+            </p>
+        </div>
+        
+          <div class="box">
+        <h2 onclick="toggleContent('content2')"><b>What is DNS lookup?</b><img src="images.png" alt="ic" style="margin-left: 1100px;"></h2>
+        <p id="content2">
+            DNS lookup, also known as a DNS query or DNS resolution, is the process of converting a human-readable domain name (e.g., www.example.com) into its corresponding IP address (e.g., 192.168.1.1) through the Domain Name System (DNS). This process allows computers to locate and communicate with other devices and servers on the internet. <br><br><br>
+
+            <strong>There are two main types of DNS lookup:</strong> <br><br>
+            
+            <b>1.Forward DNS Lookup:-</b> In a forward DNS lookup, a client (such as a web browser) sends a DNS query to a DNS resolver or DNS server, requesting the IP address associated with a specific domain name. The DNS resolver follows the steps outlined in the previous answer to resolve the domain name and return the IP address to the client. <br><br>
+            
+            <b>2.Reverse DNS Lookup:-</b> A reverse DNS lookup, also known as reverse DNS resolution or PTR (Pointer) lookup, is the opposite of a forward DNS lookup. It involves finding the domain name associated with a given IP address. This type of lookup is often used for security and logging purposes. For example, when an email server receives an email, it might perform a reverse DNS lookup on the sender's IP address to verify the authenticity of the sender's domain. <br><br>
+            
+            DNS lookup is a critical process that happens behind the scenes every time you access a website, send an email, or perform any network-related activity on the internet. It ensures that domain names are translated into the appropriate IP addresses so that data can be routed and delivered to the correct destination.
+        </p>
+    </div>
+    
+                
+                
+    <div class="box">
+      <h2 onclick="toggleContent('content3')"><b>How DNS lookup work?</b> <img src="images.png" alt="ic" style="margin-left: 1100px;"></h2>
+      <p id="content3">
+    
+        DNS lookup, or DNS resolution, is the process by which a computer or device translates a human-readable domain name (like www.example.com) into an IP address (like 192.168.1.1) to locate a specific server or device on the internet. Here's how DNS lookup works step by step: <br><br><br>
+
+        <b>1.User Input:-</b> You initiate a DNS lookup when you enter a domain name (e.g., www.example.com) into your web browser, click a link, or perform any action that requires resolving a domain name. <br><br>
+        
+        <b>2.Local DNS Cache Check:-</b> Your computer first checks its local DNS cache to see if it already has the IP address associated with the requested domain. The cache stores recently resolved domain-to-IP mappings to speed up future lookups. If the information is found in the cache, the process ends, and your computer uses the cached IP address to connect to the server. <br><br>
+        
+        <b>3.DNS Resolver Query:-</b> If the IP address is not found in the local cache, your computer sends a DNS query to a DNS resolver. The DNS resolver is usually provided by your Internet Service Provider (ISP) or configured manually to use a public DNS resolver like Google's 8.8.8.8 or Cloudflare's 1.1.1.1. <br><br>
+        
+        <b>4.Recursive Query:-</b> The DNS resolver acts as a middleman in the DNS lookup process. If the resolver does not have the IP address in its cache, it starts a recursive query process. Here's how this process unfolds: <br><br>
+        
+           <b>a.Root DNS Server:-</b> The resolver contacts a root DNS server, which is the top-level of the DNS hierarchy. There are 13 root DNS server clusters worldwide. The root server helps direct the resolver to the appropriate top-level domain (TLD) server. <br><br>
+        
+           <b>b.TLD DNS Server:-</b> The TLD server is responsible for the specific top-level domain of the requested domain (e.g., .com, .org, .net). The resolver then queries the TLD DNS server for information about the domain. <br><br>
+        
+           <b>c.Authoritative DNS Server:-</b> The TLD server directs the resolver to the authoritative DNS server for the domain. The authoritative DNS server has the final DNS record for the domain name in question. <br><br>
+        
+        <b>5.IP Address Retrieval:-</b> The authoritative DNS server for the domain holds the IP address information. It responds to the resolver's query with the IP address associated with the requested domain. <br><br>
+        
+        <b>6.Response to Resolver:-</b> The DNS resolver receives the IP address from the authoritative DNS server. <br><br>
+        
+        <b>7.Local Cache Update:-</b> The resolver updates its local cache with the newly obtained IP address for the domain, so future queries for the same domain can be resolved more quickly. <br><br>
+        
+        <b>8.Response to User:-</b> The resolver sends the IP address back to your computer. <br><br>
+        
+        <b>9.Connection:-</b> With the IP address now available, your computer can establish a connection with the web server associated with that IP address, allowing you to access the website or resource you initially requested. <br><br>
+        
+        DNS lookup is an essential process on the internet, as it enables users to access websites and services using human-readable domain names while ensuring that data is routed to the correct IP addresses across the global network. <br><br>
+      </p>
+    </div>
+    
+            
+    
+    <div class="box">
+      <h2 onclick="toggleContent('content4')">Uses of DNS Lookup</h2>
+      <p id="content4">
+        DNS lookup serves various purposes in the realm of networking and internet communications. Some of the primary uses of DNS lookup include: <br><br>
+
+        <b>1.Resolving Domain Names:-</b> The primary purpose of DNS lookup is to translate human-readable domain names (e.g., www.example.com) into IP addresses (e.g., 192.168.1.1) so that computers and devices can locate and communicate with web servers and other networked resources. <br><br>
+        
+        <b>2.Web Browsing:-</b> When you enter a web address (URL) into your browser, DNS lookup is performed to determine the IP address of the web server hosting the requested website. This allows your browser to connect to the correct server and retrieve the web page content. <br><br>
+        
+        <b>3.Email Delivery:-</b> DNS lookup is used in the process of delivering email. When an email server receives an email, it performs DNS lookup to find the MX (Mail Exchange) records for the recipient's domain. This helps route the email to the correct mail server for delivery. <br><br>
+        
+        <b>4.Load Balancing:-</b> Many large websites and services use DNS lookup to implement load balancing. DNS can return multiple IP addresses in response to a query, allowing traffic to be distributed across multiple servers, which helps distribute the load and improve performance. <br><br>
+        
+        <b>5.Content Delivery Networks (CDNs):-</b> CDNs use DNS lookup to route user requests to the nearest server in their network. This reduces latency and speeds up the delivery of web content (e.g., images, videos) by serving it from a server closer to the user. <br><br>
+        
+        <b>6.Security and Filtering:-</b> DNS lookup is employed in security measures such as DNS filtering and blacklisting. It can be used to block access to malicious websites or to filter out unwanted content, such as adult content or advertising. <br><br>
+        
+        <b>7.Network Diagnostics:-</b> Network administrators and users can perform DNS lookup for troubleshooting purposes. This includes checking if a domain is reachable, verifying DNS records, and identifying DNS-related issues. <br><br>
+        
+        <b>8.Reverse DNS Lookup:-</b> Reverse DNS lookup is used to find the domain name associated with an IP address. This is often used in email servers to validate the authenticity of the sender's domain. <br><br>
+        
+        <b>9.Domain Registration:-</b> When you register a domain name, the DNS information associated with that domain is stored in authoritative DNS servers. DNS lookup is used to access and update this information when necessary. <br><br>
+        
+        <b>10.Internet of Things (IoT):-</b> IoT devices may use DNS lookup to connect to cloud servers or other devices on the internet. This allows them to access remote services and exchange data. <br><br>
+        
+        <b>11.Dynamic IP Address Resolution:-</b> In some cases, DNS lookup can be used to dynamically update DNS records when an IP address changes, ensuring that a domain always points to the correct location. <br><br>
+        
+        Overall, DNS lookup is a fundamental component of internet and network communication, enabling the seamless interaction between users and various online services and resources.
+      </p>
+    </div>
+    
+           
+            <div class="box">
+                <h2 onclick="toggleContent('content5')">Information Provided by DNS Lookup</h2>
+                <p id="content5">
+                    DNS lookup provides various types of information about a domain name when translating it into an IP address or when performing related queries. The specific information provided can vary depending on the type of DNS query and the DNS records associated with the domain. Here are some common types of information that DNS lookup can provide: <br><br>
+
+                    <b>1.IP Address (A Record):-</b> The primary function of DNS lookup is to provide the IP address associated with a domain name. This IP address is essential for establishing a connection to the web server or networked resource associated with the domain. <br><br>
+                    
+                    <b>2.IPv6 Address (AAAA Record):-</b> In addition to IPv4 addresses, DNS lookup can also provide IPv6 addresses if they are available. IPv6 is the newer addressing scheme used to accommodate the growing number of devices on the internet. <br><br>
+                    
+                    <b>3.Mail Exchange (MX Record):-</b> When performing DNS lookup for email delivery, MX records are returned. These records specify the mail servers responsible for receiving email messages for the domain. They include priority values to determine the order in which email servers should be used for delivery. <br><br>
+                    
+                    <b>4.Canonical Name (CNAME Record):-</b> CNAME records are used to specify an alias or canonical name for a domain. They allow one domain name to resolve to another domain name. DNS lookup can return CNAME records to show that a domain is an alias for another domain. <br><br>
+                    
+                    <b>5.Text Records (TXT Record):-</b> TXT records can contain arbitrary text data and are often used for various purposes, such as domain verification for email services (SPF records), domain ownership verification (DNSSEC), or providing human-readable information about a domain. <br><br>
+                    
+                    <b>6.Service Records (SRV Record):-</b> SRV records are used to specify information about services offered by a domain, such as instant messaging or VoIP services. They include details like the service type, protocol, and port number. <br><br>
+                    
+                    <b>7.Name Server (NS Record):-</b> NS records indicate the authoritative name servers for a domain. These servers are responsible for providing DNS information for the domain and its subdomains. <br><br>
+                    
+                    <b>8.Start of Authority (SOA Record):-</b> The SOA record contains administrative information about the domain, including details about the primary name server, the email address of the responsible party, and various timing parameters for DNS updates and refreshes. <br><br>
+                    
+                    <b>9.Pointer (PTR Record):-</b> In reverse DNS lookup, PTR records are used to map an IP address back to a domain name. These records are primarily used for verifying the authenticity of an IP address. <br><br>
+                    
+                    <b>10.Location Information (LOC Record):-</b> LOC records provide geographical location information for a domain. They specify latitude, longitude, and altitude data, although they are not commonly used. <br><br>
+                    
+                    <b>11.Certificate Authority Authorization (CAA Record):-</b> CAA records specify which certificate authorities are authorized to issue SSL/TLS certificates for a domain. They help improve security by controlling certificate issuance. <br><br>
+                    
+                    <b>12.Routing Information (RP Record):-</b> RP records provide information about the responsible person or organization for a domain, including an email address for administrative contact. <br><br>
+                    
+                    The specific information returned in a DNS lookup depends on the type of record being queried and the configuration of the domain's DNS zone. DNS records are essential for routing traffic, verifying domain ownership, and providing various services on the internet.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            content.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>

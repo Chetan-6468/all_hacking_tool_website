@@ -12,7 +12,6 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-<link rel="shortcut icon" href="/static/img/logo2.png">
 
   <style>
     
@@ -112,7 +111,48 @@
       background-color: #f2f2f2;
     }
 
-    
+   
+
+    .hello {
+            max-width: 85%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .box {
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .documentation h2 {
+            cursor: pointer;
+            color: #333;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .documentation p {
+            font-size: 1rem;
+            margin-top: 5px;
+            color: #333;
+            display: none;
+        }
+
+        .documentation p.active {
+            display: block;
+        }
+        img{
+
+
+          width: 25px;
+          justify-content: end;
+        }
   </style>
 </head>
 <body>
@@ -157,9 +197,159 @@
       {% endif %}
     </div>
   </div>
+
+<br>
+  <div class="hello">
+    <div class="documentation">
+      <div class="box">
+        <h2 onclick="toggleContent('content1')"><b>what is port</b>?
+        
+        </h2>
+        <p id="content1">
+          A port is a point on a computer where information exchange between multiple programs and the internet to devices or other computers takes place. To ensure consistency and simplify programming processes, ports are assigned port numbers. This, in conjunction with an IP address, forms vital information that each internet service provider (ISP) uses to fulfill requests. <br><br>
+
+          Port numbers range from 0 through to 65,536 and are ranked in terms of popularity. Ports numbered 0 to 1,023 are called “well-known" ports, which are typically reserved for internet usage but can also have specialized purposes. These ports, which are assigned by the Internet Assigned Numbers Authority (IANA), are held by leading businesses and Structured Query Language (SQL) services.<br><br>
+          
+          Ports are generally managed by the Transmission Control Protocol (TCP), which defines how to establish and maintain a network conversation between applications, and User Datagram Protocol (UDP), which is primarily used for establishing low-latency and loss-tolerating connections between applications. Some of the most popular and most frequently used ports include:<br><br>
+          
+          1. Port 20 (UDP): File Transfer Protocol (FTP) used for transferring data<br>
+          2. Port 22 (TCP): Secure Shell (SSH) protocol used for FTP, port forwarding, and secure logins<br>
+          3. Port 23 (TCP): The Telnet protocol used for unencrypted communication<br>
+          4. Port 53 (UDP): The Domain Name System (DNS), which translates internet domain names into machine-readable IP addresses<br>
+          5. Port 80 (TCP): The World Wide Web Hypertext Transfer Protocol (HTTP)<br><br>
+          Ports numbered from 1,024 to 49,151 are considered “registered ports,” and they are registered by software companies. The ports numbered from 49,152 to 65,536 are considered dynamic and private ports, which can be used by almost everyone on the internet.
+          
+        </p>
+    </div>
+    
+      <div class="box">
+    <h2 onclick="toggleContent('content2')"><b>What is Port Scanning?</b><img src="images.png" alt="ic" style="margin-left: 1100px;"></h2>
+    <p id="content2">
+      Port scanning is a technique used in computer networking and cybersecurity to discover open ports and services on a computer system or network. A port is a communication endpoint in a networked device, and each port is associated with a specific service or protocol. For example, port 80 is commonly associated with HTTP (web) traffic, while port 22 is associated with SSH (Secure Shell) for remote access. <br><br>
+
+      Port scanning involves sending a series of network requests to various ports on a target system to determine which ports are open, closed, or filtered. This information can be valuable for a variety of purposes, including:<br><br>
+      
+      <b>1. Network Discovery:</b> Port scanning helps administrators identify the services and applications running on their networked devices. It can be used to create an inventory of active devices and services. <br>
+      
+      <b>2. Security Assessment:</b> Security professionals use port scanning to identify potential vulnerabilities in a system. An open port that shouldn't be open or running an unauthorized service could indicate a security issue.<br>
+      
+      <b>3. Firewall and Intrusion Detection System (IDS) Testing:</b> Administrators may use port scanning to test the effectiveness of their firewall rules and IDS configurations. By scanning their own network from the outside, they can assess whether their security measures are blocking or allowing the intended traffic.<br>
+      
+      <b>4. Penetration Testing:</b> Ethical hackers and security consultants use port scanning as part of penetration testing to identify weaknesses in a system's security. They may use port scanning to find open ports that could be exploited for unauthorized access.<br><br>
+      
+      There are various port scanning techniques, including:<br><br>
+      
+      <b>1.TCP Connect Scan:</b> This is the most common type of port scan. It involves attempting to establish a full TCP connection with each port to determine whether it is open, closed, or filtered. <br>
+      
+      <b>2.SYN Scan (Half-Open Scan):</b> This technique sends a TCP SYN packet to the target port and listens for the response. If the port is open, it will respond with a SYN-ACK. If it's closed, it will respond with a RST (reset) packet. <br>
+      
+      <b>3.UDP Scan:</b> Unlike TCP, which is connection-oriented, UDP is connectionless. UDP scanning involves sending UDP packets to various ports and analyzing the responses, if any. <br>
+      
+      <b>4.Stealth Scanning:</b> Techniques like FIN, Xmas, and NULL scans are designed to evade detection by IDS and firewall systems. They manipulate TCP flags in the packet headers to determine the port's state. <br><br>
+      
+      It's important to note that port scanning can be both a legitimate and necessary tool for network administrators and security professionals to ensure the security and functionality of their systems. However, it can also be used maliciously by attackers to identify potential targets and vulnerabilities, which is why network administrators often monitor for and respond to unusual or frequent scanning activity.
+    </p>
+</div>
+
+            
+            
+<div class="box">
+  <h2 onclick="toggleContent('content3')"><b>How Port Scanning Works?</b> <img src="images.png" alt="ic" style="margin-left: 1100px;"></h2>
+  <p id="content3">
+
+      <strong>Port scanning works by systematically probing a target computer or network to discover which network ports are open and what services or protocols are associated with those open ports. Here's a step-by-step explanation of how port scanning works:</strong>
+  
+  <ul  >
+      <li><strong>Selecting a Target:</strong> The first step in port scanning is to identify the target system or network that you want to scan. This could be a single computer, a range of IP addresses, or an entire network.</li>
+
+      <li><strong>Choosing Port Scanning Tools:</strong> Port scanning is typically performed using specialized software or tools. There are various port scanning tools available, both command-line and graphical, such as Nmap, Netcat, and Zenmap, that facilitate the scanning process.</li>
+
+      <li><strong>Selecting Scanning Techniques:</strong> Port scanning tools offer various scanning techniques, each with its own advantages and purposes. Some common scanning techniques include:
+          <ul>
+              <li><strong>TCP Connect Scan:</strong> This method attempts to establish a full TCP connection with each port on the target system. If a connection is successful, the port is considered open.</li>
+
+              <li><strong>SYN Scan (Half-Open Scan):</strong> This technique sends a TCP SYN packet to the target port. If the port is open, it responds with a SYN-ACK packet. If it's closed, it responds with a RST packet. The scanner doesn't complete the connection but observes the initial response.</li>
+
+              <li><strong>UDP Scan:</strong> Unlike TCP, UDP is connectionless, so this method involves sending UDP packets to various ports and analyzing any responses received. Open UDP ports may send back a response, while closed ports might not respond at all.</li>
+
+              <li><strong>Stealth Scanning:</strong> Techniques like FIN, Xmas, and NULL scans manipulate the TCP flags in the packet headers to determine the port's state. These scans are designed to evade detection by intrusion detection systems (IDS) and firewalls.</li>
+          </ul>
+      </li>
+
+      <li><strong>Starting the Scan:</strong> The chosen scanning tool initiates the scan by sending network packets to the target's IP addresses and specific port numbers based on the selected scanning technique.</li>
+
+      <li><strong>Analyzing Responses:</strong> As the scanning tool sends packets to different ports, it listens for responses from the target system. Depending on the response (or lack thereof), the tool categorizes each port as one of the following:
+          <ul>
+              <li><strong>Open:</strong> If a port responds positively (e.g., with a SYN-ACK or a service banner), it is considered open. This means there is a service running and listening on that port.</li>
+
+              <li><strong>Closed:</strong> If a port responds with a RST packet or ICMP error message indicating "Port Unreachable," it is considered closed. No service is actively listening on that port.</li>
+
+              <li><strong>Filtered:</strong> If there is no response or the responses are blocked by a firewall, the port is considered filtered. This can indicate that the port is either closed or protected by a firewall.</li>
+          </ul>
+      </li>
+
+      <li><strong>Generating Scan Reports:</strong> Port scanning tools often provide detailed reports on the open ports, services, and their associated protocols. These reports are valuable for network administrators and security professionals to assess the security and configuration of the target system.</li>
+    </ul>
+  </p>
+</div>
+
+        
+
+<div class="box">
+  <h2 onclick="toggleContent('content4')">Uses of Port Scanning</h2>
+  <p id="content4">
+      Port scanning is a networking technique used to discover open ports on a computer or networked device. It serves various purposes and has several practical uses in the field of networking, cybersecurity, and IT administration. Here are some common uses of port scanning:
+
+      <ul>
+          <li><strong>Network Discovery:</strong> Port scanning helps administrators identify the services and applications running on their networked devices. It can be used to create an inventory of active devices and services within a network.</li>
+
+          <li><strong>Security Assessment:</strong> Security professionals use port scanning to identify potential vulnerabilities in a system. An open port that shouldn't be open or running an unauthorized service could indicate a security issue. Port scanning can help identify security weaknesses that need to be addressed.</li>
+
+          <li><strong>Firewall and IDS Testing:</strong> Administrators may use port scanning to test the effectiveness of their firewall rules and Intrusion Detection System (IDS) configurations. By scanning their own network from the outside, they can assess whether their security measures are blocking or allowing the intended traffic.</li>
+
+          <li><strong>Penetration Testing:</strong> Ethical hackers and security consultants use port scanning as part of penetration testing to identify weaknesses in a system's security. They may use port scanning to find open ports that could be exploited for unauthorized access. This helps organizations proactively address security concerns.</li>
+
+          <li><strong>Network Troubleshooting:</strong> Port scanning can be used as a diagnostic tool to identify connectivity issues. If a specific service is not working as expected, scanning for open ports related to that service can provide insights into the problem's source.</li>
+
+          <li><strong>Network Mapping:</strong> Port scanning can assist in mapping out the network infrastructure. By identifying open ports and services on devices, administrators can create network diagrams and visualize the network layout.</li>
+
+          <li><strong>Identifying Unauthorized Services:</strong> Administrators can use port scanning to detect unauthorized or rogue services running on their network. This helps in ensuring that only authorized services are running.</li>
+
+          <li><strong>Performance Optimization:</strong> By analyzing which services are running on which ports, administrators can optimize network performance and resource allocation. They can ensure that critical services receive the necessary resources.</li>
+
+          <li><strong>Compliance and Auditing:</strong> Port scanning can be used for compliance purposes to ensure that network configurations adhere to industry standards and regulatory requirements. It helps organizations maintain a secure and compliant network infrastructure.</li>
+
+          <li><strong>Baseline Establishment:</strong> Establishing a baseline of open ports and services on a network is essential for monitoring and anomaly detection. Any deviations from the baseline can trigger alerts and indicate potential security incidents.</li>
+      </ul>
+  </p>
+</div>
+
+       
+        <div class="box">
+            <h2 onclick="toggleContent('content5')">Information Provided by Port Scanning</h2>
+            <p id="content5">
+                Port scanning can provide information such as:
+                <ul>
+                    <li>Services that are running</li>
+                    <li>Users who own services</li>
+                    <li>Whether anonymous logins are allowed</li>
+                    <li>Which network services require authentication</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleContent(id) {
+        var content = document.getElementById(id);
+        content.classList.toggle("active");
+    }
+</script>
   
 <br><br><br>
- 
+<br>
+<br><br>
 <footer class="bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
