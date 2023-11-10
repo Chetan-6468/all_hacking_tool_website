@@ -14,10 +14,15 @@
         <button type="submit">Find Subdomains</button>
     </form>
     <h2>Subdomains:</h2>
-    <ul>
-        {% for subdomain in subdomains %}
-            <li>{{ subdomain }}</li>
-        {% endfor %}
-    </ul>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% else %}
+        <ul>
+            {% for subdomain in subdomains %}
+                <li>{{ subdomain }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
 </body>
 </html>

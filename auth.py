@@ -2,9 +2,29 @@ from flask import Blueprint, render_template, request, flash, redirect,session
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 from middleware import authentication, guest
+from google_auth_oauthlib.flow import Flow
+# import os
+# import pathlib 
+
 
 auth_page = Blueprint('auth', __name__, static_folder='static', template_folder='templates')
 db = SQLAlchemy()
+
+# os.environ['OAUTH2LIB_INSECURE_TRANSPORT'] = '1'
+
+# GOOGLE_CLIENT_ID = "760608333724-usp9lttq0h948n6s5ocbn716e8occmj3.apps.googleusercontent.com"
+
+# client_secrets_file = os.path.join(pathlib.path(__file__).parent,"client_secrets.json")
+
+# flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
+                                    #  scopes =["https://www.googleapis.com/auth/userinfo.profile","https://www.googleapis.com/auth/userinfo.email", "openid"],
+                                    #  redirect_uri="http://127.0.0.1:5000/auth/signup"
+                                    #  )
+
+
+
+
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -64,7 +84,6 @@ def signin():
 
 
 @auth_page.route('/profile')
-
 def profile(): 
      user = User.query.filter_by(email=session['email']).first()
      return render_template('profile.html',user=user)  

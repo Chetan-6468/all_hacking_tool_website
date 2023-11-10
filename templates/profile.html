@@ -6,66 +6,140 @@
     <title>Profile</title>
     <link rel="shortcut icon" href="/static/img/logo2.png">
 
-
-
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+           
+        }
+
+        .container {
+            max-width: 1900px;
+            height: 690px;
+            
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            background-attachment: fixed;
+            
+        }
+
        
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
+        .profile-logo {
+         align-items: center;
+        }
 
-h2 {
-    font-size: 24px;
-    color: #333;
-}
+        .profile-logo img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
 
-p {
-    font-size: 16px;
-    margin: 10px 0;
-}
+        .profile-title {
+            font-size: 34px;
+            color: #333;
+            align-items: center;
 
-b {
-    font-weight: bold;
-}
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        }
 
-.btn:hover {
-    background-color: #0056b3;
-}
+        .profile-details {
+            margin-top: 20px;
+           margin-right: 800px;
 
+        }
+
+        .profile-details p {
+           
+           font-size: 20px;
+
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: #333;
+            margin-right: 150px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .profile-section {
+            margin-top: 20px;
+        }
+
+        .change{
+            margin-right: 400px;
+            font-size:30px;
+            background-color: #333;
+            color:#fff;
+        }
+
+        .form{
+            margin-right: 900px;
+             font-weight: bold;
+        }
+        
+         .email-box {
+            
+            padding:10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            display: inline-block; 
+            margin-left: 4px;
+        }
+        
+       
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>User Profile</h2>
-        <p> <b>Name:</b>{{user.name}}</p>
-        <p> <b>email:</b>{{user.email}}</p>
-        <p> <b>password:</b>{{user.password}}</p>
-        <a href="/home" class="btn btn-dark">Back</a>
-        <a href="/auth/logout" class="btn btn-dark">Logout</a>
-
+        <div class="profile-card">
+            <div class="profile-logo">
+                <img src="/static/img/user_profile.jpg" alt="User Profile">
+            </div>
+            <div class="profile-title">{{user.name}}</div><hr>
+            
+            <div class="profile-details">
+               
+                <p> <b>Email:</b><span class="email-box">{{user.email}}</span></p><br><br>
+            </div><hr>
+            
+            <div class="profile-section">
+                <h2 class="change">Change Password</h2>
+                <form class="form" action="/auth/change_password" method="POST">
+                    <label for="current_password">Current Password:</label>
+                    <input class="email-box"type="password" name="current_password" required><br><br>
+                    <label for="new_password">New Password:</label>
+                    <input class="email-box"type="password" name="new_password" required><br><br>
+                    <label for="confirm_password">Confirm New Password:</label>
+                    <input class="email-box"type="password" name="confirm_password" required><br><br>
+                    <input type="submit" class="btn" value="Change Password">
+                </form>
+            </div>
+           {#
+            <a href="/home" class="btn btn-dark">Back</a>
+            <a href="/auth/logout" class="btn btn-dark">Logout</a>
+            #}
+        </div>
     </div>
 </body>
 </html>

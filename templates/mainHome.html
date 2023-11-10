@@ -1,121 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eCyberDuniya- Scan Your Website</title>
-  <link rel="stylesheet" href="/static/css/home.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCyberduniya</title>
+    <link rel="shortcut icon" href="logo2.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/mainhome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 <link rel="shortcut icon" href="/static/img/logo2.png">
-<style>  
-.hacking-card {
-  background-color: #000;
-  color: #0f0;
-  border: 2px solid #0f0;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-}
-.hacking-card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  "use strict";
+  
+  !function() {
+    var t = window.driftt = window.drift = window.driftt || [];
+    if (!t.init) {
+      if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+      t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+      t.factory = function(e) {
+        return function() {
+          var n = Array.prototype.slice.call(arguments);
+          return n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+        var i = document.getElementsByTagName("script")[0];
+        i.parentNode.insertBefore(o, i);
+      };
+    }
+  }();
+  drift.SNIPPET_VERSION = '0.3.1';
+  drift.load('kvg9rxnm54er');
+  </script>
 
-.hacking-icon {
-  color: #0f0;
-}
+  <style>
 
-.hacking-title {
-  font-size: 20px;
-  color: #0f0;
-}
+    .footer {
+      background-color: #333;
+      color: #ccc;
+      padding: 2rem 0;
+  }
 
-.hacking-text {
-  color: rgb(170, 170, 170);
-}
+  .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
 
-.hacking-button {
-  background-color: rgb(0, 85, 203);
-  color: #ffffff;
-}
+  .footer-column {
+      flex: 1;
+      margin: 0 1rem;
+  }
 
-.hacking-button:hover {
-  background-color: #0a0;
-}
+  .footer-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+  }
 
-</style>
+  .footer-links {
+      list-style: none;
+      padding: 0;
+  }
+
+  .footer-link {
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      color: #ccc;
+      display: block;
+      transition: color 0.3s;
+  }
+
+  .footer-link:hover {
+      color: #fff;
+  }
+
+  .footer-input {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid #444;
+      color: #ccc;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-left: -40px;
+      position: static;
+  }
+
+  .footer-button {
+      background-color: #3f83b6;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: 250px;
+
+  }
+
+  .footer-button:hover {
+      background-color: #276c98;
+  }
+
+  .footer-social {
+      margin-top: 1rem;
+  }
+
+  .footer-social a {
+      color: #ccc;
+      text-decoration: none;
+      margin-right: 1rem;
+      transition: color 0.3s;
+  }
+
+  .footer-social a:last-child {
+      margin-right: 0;
+  }
+
+  .footer-social a:hover {
+      color: #fff;
+  }
+
+  .border-t {
+      border-top: 1px solid #444;
+  }
+
+  .footer-small {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 1rem;
+  
+  }
+  .placeholder{
+    margin-left: -40px;
+    margin-bottom: 1px;
+    color: #ccc;
+   }
+
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="navbar">
-      <img src="/static/img/logo2.png" alt="logo" height="50px" width="50px">
-      <h1 class="logo">eCyberDuniya</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="/menu"  target="_blank">Menu</a></li>
-        <li><a href="/auth/signin">Sign In</a></li>
-        <li><a href="/auth/signup">Sign Up</a></li>
-      </ul>
-    </div>
-  </nav><br>
+    <nav>
+        <div class="navbar">
+            <img class="logo" src="/static/img/logo.png" alt="logo" >
+          <ul class="nav-links">
+            <li><a href="/about">About</a></li>
+            <li><a href="/menu"  target="_blank">Menu</a></li>
+            <li><a href="/auth/signin">Sign In</a></li>
+            <li><a href="/auth/signup">Sign Up</a></li>
+          </ul>
+        </div>
+      </nav><br>
+    <div id="main">
+        <div id="page1">
+            <h1 >Time is what </h1>
+            <h1>determines security.</h1>
+            <div id="video-container" class="video">
+                <div class="msg">Scanning</div>
+                <div id="console">
+                </div>
+            </div>
+        </div>
+        <div id="page2">
+            <div id="elem1" class="elem">
+                <img data-scroll data-scroll-speed="1" src="/static/img/img1.jpg" alt="">
+                <div data-scroll data-scroll-speed="-2" class="dets"></div>
 
-  
-  <h1 class="heading">All HackingTools Menu 🧰</h1><br> <section class="container">
-    <h2  class="tools">Infomation Gathering Tools</h2><br>
+            </div>
+            <div id="elem2" class="elem">
+                <img data-scroll data-scroll-speed="1" src="/static/img/img2.jpg" alt="">
+                <div data-scroll data-scroll-speed="-2" class="dets"></div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="card mb-4 hacking-card">
-          <div class="card-body text-center">
-            <i class="fas fa-laptop fa-4x mb-3 hacking-icon" style="color: #f441a5;"></i>
-            <h5 class="card-title hacking-title">Port Scanning</h5>
-            <p class="card-text hacking-text">Perform a port scan to discover open ports on a target system.</p>
-            <a href="/port_scanning" class="btn btn-primary hacking-button" target="_blank">Scan Now</a>
-          </div>
+            </div>
+            <div id="elem3" class="elem">
+                <img data-scroll data-scroll-speed="1" src="/static/img/img3.jpg" alt="">
+                <div data-scroll data-scroll-speed="-2" class="dets"></div>
+            </div>
+
         </div>
       </div>
-      
-      <div class="col-md-4">
-        
-        <div class="card mb-4 hacking-card">
-          <div class="card-body text-center">
-            <i class="fas fa-globe fa-4x mb-3 hacking-icon" style="color: #50c878;"></i>
-            <h5 class="card-title hacking-title">Subdomain finder</h5>
-           <p class="card-text hacking-text">Find all subdomain in <br>your website</p>
-            <a href="/subdomain" class="btn btn-primary hacking-button"target="_blank">Scan Now</a>
+
+
+      <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h2 class="footer-title">TOOL</h2>
+                <ul class="footer-links">
+                    <li><a class="footer-link" href="#">Information Gathering Tools </a></li>
+                    <li><a class="footer-link" href="#">Word list Generator</a></li>
+                    <li><a class="footer-link" href="#">Xss scanner</a></li>
+                    <li><a class="footer-link" href="#">Network scanner</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 class="footer-title">COMPANY</h2>
+                <ul class="footer-links">
+                    <li><a class="footer-link" href="#">About</a></li>
+                    <li><a class="footer-link" href="#">Team</a></li>
+                    <li><a class="footer-link" href="#">Reviews</a></li>
+                    <li><a class="footer-link" href="#">Customers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 class="footer-title">RESOURCES</h2>
+                <ul class="footer-links">
+                    <li><a class="footer-link" href="#">Data Security</a></li>
+                    <li><a class="footer-link" href="#">Hacking Tutorials</a></li>
+                    <li><a class="footer-link" href="#">Blogs</a></li>
+                    <li><a class="footer-link" href="#">Bug hunting</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2 class="footer-title">HELP</h2>
+                <ul class="footer-links">
+                    <li><a class="footer-link" href="#">Terms and Conditions </a></li>
+                    <li><a class="footer-link" href="#">Privacy Policy</a></li>
+                    <li><a class="footer-link" href="#">Contact Us</a></li>
+                    <li><a class="footer-link" href="#">frequently Asked Question</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="border-t border-gray-800">
+          <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+            <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+              <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
+               <h6 class="placeholder">SUBSCRIBE TO OUR NEWSLETTER</h6>
+                <input type="text" id="footer-field" name="footer-field" class="footer-input" placeholder="Your email">
+              </div>
+              <button class="footer-button">Subscribe</button>
+              <p class="footer-small">Get free pentesting guides and demos, 
+                <br class="footer-small">plus core updates to the platform that improve your pentesting expertise.
+              </p>
+            </div>
+            <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
+              <a class="text-gray-400">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-400">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-400">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
           </div>
         </div>
-      </div>  
-<br><br><br><br><br>
-<section>
-  <footer>
-    <div class="container">
-      <div class="footer-text">
-        <a href="#" class="footer-logo">SecureWebScan</a><br>
-        <ul class="social-icons">
-          <li><a href="#" class="fab fa-facebook-f"></a></li>
-          <li><a href="#" class="fab fa-twitter"></a></li>
-          <li><a href="#" class="fab fa-google"></a></li>
-          <li><a href="#" class="fab fa-instagram"></a></li>
-          <li><a href="#" class="fab fa-linkedin-in"></a></li>
-          <li><a href="#" class="fab fa-github"></a></li>
-        </ul>
-      </div>
-      <div class="border-top">
-        &copy; 2023 SecureWebScan.com
-      </div>
-    </div>
-  </footer>
-  
-</section>
-
+        <div class="bg-gray-800 bg-opacity-75">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-400 text-sm text-center sm:text-left">©2023 eCyberduniya —
+              <a href="#" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@eCyberduniya</a>
+            </p>
+            <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-400 text-sm">eCyberduniya the best Cyber security Tool</span>
+          </div>
+        </div>
+    </footer>
+    
+   
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/static/js/mainhome.js"></script>
 </body>
 </html>
+
+
+
+
+

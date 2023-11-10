@@ -4,32 +4,41 @@ import requests
 import threading
 from urllib.parse import urlparse
 import urllib.parse
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 from auth import auth_page
+from xss import xss_page
+from main import main_page
+
 from auth import db
-
 from middleware import authentication, guest
-
 from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+from auth import User
+
+
 app = Flask(__name__)
 
-# set optional bootswatch theme
+app.register_blueprint(auth_page, url_prefix="/auth")
+app.register_blueprint(main_page, url_prefix="/main")
+app.register_blueprint(xss_page,  url_prefix="/xss")
+
+
+
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 
-admin = Admin(app, name='microblog', template_mode='bootstrap3')
+admin = Admin()
 
 app.config['SECRET_KEY'] = 'thisismysecretkey' 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
-app.register_blueprint(auth_page, url_prefix="/auth")
+
+
+admin.add_view(ModelView(User, db.session))
+
 
 db.init_app(app) 
+admin.init_app(app)
 
 
 with app.app_context():
@@ -60,9 +69,7 @@ def about():
 def menu():
     return render_template('menu.html')
 
-@app.route('/scanner')
-def scanner():
-    return render_template('scanner.html')
+
 
 
 @app.route('/passwordGen')
@@ -76,128 +83,13 @@ def passwordchecker():
     return render_template('passwordchecker.html')
 
 
-@app.route('/subdomain')
-def subdomain():
-    return render_template('subdomain.html')
 
 
-# @app.route('/signup')
-# def signup():
-#     return render_template('signup.html')
-
-# @app.route('/signin')
-# def signin():
-#     return render_template('signin.html')
 
 @app.route('/forgotpassword')
 def forgotpassword():
     return render_template('forgotpassword.html')
 
-# from flask import Flask, render_template, request
-# import dns.resolver
-
-# app = Flask(__name__)
-
-# def find_subdomains(domain):
-#     subdomains = []
-#     try:
-#         answers = dns.resolver.query(domain, 'CNAME')
-#         for rdata in answers:
-#             subdomains.append(rdata.target)
-#     except dns.resolver.NoAnswer:
-#         pass
-#     return subdomains
-
-# @app.route('/subdomain', methods=['GET', 'POST'])
-# def subdomain():
-#     subdomains = []
-#     if request.method == 'POST':
-#         domain = request.form['domain']
-#         if domain:
-#             subdomains = find_subdomains(domain)
-#     return render_template('subdomain.html', subdomains=subdomains)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
-
-# import time  # Import the time module
-
-# # Function to check for XSS vulnerability
-# def check_xss(url):
-#     try:
-#         # Initialize Chrome WebDriver
-#         service = Service('chromedriver.exe')  # Provide the path to your chromedriver executable
-#         driver = webdriver.Chrome(service=service)
-
-#         # Open the web page
-#         driver.get(url)
-
-#         # List of XSS payloads to test
-#         xss_payloads = [
-#             '<script>alert("XSS");</script>',
-#             '<img src="x" onerror="alert(\'XSS\');">',
-#             '"><script>alert("XSS");</script>',
-#             '<svg/onload=alert(\'XSS\')>',
-#             '<iframe src="javascript:alert(\'XSS\');" />'
-#             # Add more payloads as needed
-#         ]
-
-#         results = []
-
-#         for payload in xss_payloads:
-#             try:
-#                 # Use JavaScript to inject the payload into the input field
-#                 driver.execute_script('''
-#                     var input = document.querySelector('input[type="text"]');
-#                     input.value = arguments[0];
-#                 ''', payload)
-
-#                 # Pause for a moment to allow the payload to take effect in the browser (adjust the delay as needed)
-#                 time.sleep(1)  # Adjust the delay (in seconds) as needed
-
-#                 # Submit the form if available (some websites may not have a form)
-#                 form = driver.find_element(By.TAG_NAME, 'form')
-#                 form.submit()
-
-#                 # Check if the alert dialog appears (indicating XSS vulnerability)
-#                 alert = WebDriverWait(driver, 5).until(EC.alert_is_present())
-#                 alert_text = alert.text
-#                 alert.accept()
-
-#                 if alert_text:
-#                     results.append("The website has an XSS vulnerability with payload: " + payload)
-#                 else:
-#                     results.append("No alert for payload: " + payload)
-#             except Exception as e:
-#                 # If no alert is triggered, continue to the next payload
-#                 continue
-
-#             # Reload the page for the next payload
-#             driver.get(url)
-
-#         # Close the browser
-#         driver.quit()
-
-#         if results:
-#             return "\n".join(results)
-#         else:
-#             return "The website is safe from known XSS payloads"
-#     except Exception as e:
-#         return str(e)
-
-
-# # Route to handle XSS scanning
-# @app.route('/scan', methods=['POST'])
-# def scan():
-#     url = request.form['url']
-#     result = check_xss(url)
-#     return jsonify({'result': result})
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
 
 
 
